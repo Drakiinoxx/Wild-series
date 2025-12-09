@@ -11,6 +11,7 @@ import App from "./App";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
+import Program from "./pages/Program/Program";
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/", // The root path
     element: <App />, // Renders the App component for the home page
+  },
+  {
+    path: "/programs",
+    element: <Program />,
   },
   // Try adding a new route! For example, "/about" with an About component
 ]);
@@ -38,7 +43,7 @@ if (rootElement == null) {
 createRoot(rootElement).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </StrictMode>
 );
 
 /**
