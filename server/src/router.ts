@@ -13,6 +13,15 @@ router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
+// Define program-related routes
+import programActions from "../src/modules/item/programActions";
+import categoryActions from "./modules/item/Category/CategoryAction";
+
+router.get("/api/programs", programActions.browse);
+router.get("/api/programs/:id", programActions.read);
+router.get("/api/categories", categoryActions.browse);
+router.get("/api/categories/:id", categoryActions.read);
+
 /* ************************************************************************* */
 
 // Declaration of a "Welcome" route
@@ -22,9 +31,5 @@ import sayActions from "./modules/item/sayActions";
 router.get("/", sayActions.sayWelcome);
 
 /* ************************************************************************* */
-
-import programActions from "./modules/item/programActions";
-
-router.get("/api/programs", programActions.browse);
 
 export default router;
