@@ -27,15 +27,16 @@ const programs = [
 
 import type { RequestHandler } from "express";
 
-const browse: RequestHandler = (req, res) => {
-  if (req.query.q != null) {
-    const filteredPrograms = programs.filter((program) =>
-      program.synopsis.includes(req.query.q as string),
-    );
+import programRepository from "./ProgramRepository";
 
-    res.json(filteredPrograms);
-  } else {
+const browse: RequestHandler = async (req, res) => {
+  try {
+    const programs = await programRepository.readAll();
+    console.log("Programs from DB:", programs); // Debug
     res.json(programs);
+  } catch (error) {
+    console.error("Erreur:", error);
+    res.status(500).json({ error: "Erreur serveur" });
   }
 };
 

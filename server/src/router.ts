@@ -13,9 +13,9 @@ router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
 
-// Define program-related routes
-import programActions from "../src/modules/item/programActions";
 import categoryActions from "./modules/item/Category/CategoryAction";
+// Define program-related routes
+import programActions from "./modules/item/Program/programActions";
 
 router.get("/api/programs", programActions.browse);
 router.get("/api/programs/:id", programActions.read);
